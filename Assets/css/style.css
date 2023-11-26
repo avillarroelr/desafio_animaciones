@@ -1,0 +1,392 @@
+/*----------- css General --------------*/
+html {
+    scroll-behavior: smooth;
+}
+
+:target:before {
+    content: '';
+    display: block;
+    height: 100px;
+    margin: -100px 0 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+img {
+    height: auto;
+    border-radius: 10px;
+    height: auto;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+h3 {
+    color: red;
+    padding: 10px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    margin: 10px;
+}
+
+a:hover {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons span {
+    font-size: 48px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons span:hover {
+    transform: rotateY(180deg);
+}
+
+/*----------- Animacion de Vibrar ------------------------*/
+@keyframes vibrar {
+    0% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(-2px, 2px);
+    }
+
+    50% {
+        transform: translate(2px, -2px);
+    }
+
+    75% {
+        transform: translate(2px, 2px);
+    }
+
+    100% {
+        transform: translate(-2px, -2px);
+    }
+}
+
+img:hover {
+    filter: grayscale(0%);
+    animation: vibrar 0.3s ease;
+}
+
+button {
+    background-color: whitesmoke;
+    color: red;
+    padding: 10px;
+    border: 1px solid;
+    border-color: lightgray;
+    cursor: pointer;
+    margin: 0;
+    transition: background ease-in .4s;
+    border-radius: 5px;
+
+}
+
+button:hover {
+    background: red;
+    text-decoration: dashed;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+/*========================== CSS Movile  ======================= */
+
+@media (max-width: 767px) {
+    /* Estilos específicos para móviles */
+
+    .container {
+        div {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+                "menu menu menu"
+                "main main main"
+                "footer footer footer";
+        }
+    }
+
+    /*----------- Menú de navegación ------------------------*/
+    nav {
+        grid-area: menu;
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    nav section {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        color: white;
+        text-align: start;
+        gap: 5px;
+        padding: 2px;
+    }
+
+    nav ul {
+        color: white;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+    }
+
+    nav h3 {
+        color: white;
+    }
+
+    /*----------- Sección Principal ---------------------*/
+    main {
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding-top: 15%;
+        z-index: 1000;
+    }
+
+    main section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    main h3 {
+        color: white;
+    }
+
+    main figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white;
+        text-align: center;
+        align-items: center;
+        color: red;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /*----------- Sección Reservas ---------------------*/
+    .contact {
+        grid-area: contact;
+        background-color: lightgray;
+    }
+
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        gap: 5px;
+        color: red;
+    }
+
+    .contact input {
+        border-radius: 5px;
+    }
+
+    .contact textarea {
+        border-radius: 5px;
+    }
+
+    .contact select {
+        border-radius: 5px;
+        text-decoration: dashed;
+    }
+
+    /*----------- Pie de página ---------------------*/
+    footer {
+        grid-area: footer;
+        background-color: crimson;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+/*=================== css Desktop =======================*/
+@media (min-width: 576px) {
+    .container {
+        display: grid;
+        grid-template-areas:
+            "menu main"
+            "menu main"
+            "menu contact"
+            "footer footer";
+        grid-template-columns: auto 1fr;
+    }
+
+    /*----------- Menú de navegación ------------------------*/
+    nav {
+        grid-area: menu;
+        background-color: red;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        position: fixed;
+        height: 100%;
+    }
+
+    nav section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: white;
+        gap: 5px;
+    }
+
+    nav h3 {
+        color: white;
+    }
+
+    ul {
+        color: white;
+        font-weight: bold;
+        display: block;
+        list-style: none;
+    }
+
+    /*----------- Sección Principal ---------------------*/
+    main {
+        grid-area: main;
+        padding-left: 15%;
+
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 20px;
+        gap: 20px
+    }
+
+    figure img {
+        max-width: 70%;
+        height: auto;
+    }
+
+    main figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white;
+        text-align: center;
+        align-items: center;
+        color: red;
+        margin-bottom: 2%;
+        border-radius: 5px;
+    }
+
+    main section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    button {
+        background-color: whitesmoke;
+        color: red;
+        border: 1px solid;
+        border-color: lightgray;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    /*----------- Sección Reservas ---------------------*/
+    .contact {
+        grid-area: contact;
+        background-color: lightgray;
+        text-align: center;
+    }
+
+    .contact form {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+        gap: 5px;
+        color: red;
+    }
+
+    .contact form label {
+        text-align: left;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .contact input {
+        width: 60%;
+        border-radius: 5px;
+    }
+
+    .contact textarea {
+        width: 60%;
+        border-radius: 5px;
+    }
+
+    .contact select {
+        width: 60%;
+        border-radius: 5px;
+    }
+
+    /*----------- Pie de página ---------------------*/
+    footer {
+        grid-area: footer;
+        background-color: crimson;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding: 10px;
+    }
+
+    p {
+        margin: 0;
+    }
+}
